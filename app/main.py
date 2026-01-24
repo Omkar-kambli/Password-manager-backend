@@ -14,5 +14,5 @@ app.include_router(vault_router)
 
 @app.get("/")
 def root(data:int , name:str):
-    return{"hi bro"}
+    return{"hi brother"}
       
