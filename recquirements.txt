@@ -1,0 +1,29 @@
+Password_Msnsger/
+│
+├── app/
+│   ├── main.py
+│   ├── auth.py
+│   ├── sync.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   └── config.py
+│
+├── .venv/
+│
+├── requirements.txt
+└── README.md
+
+postgresql pass : 12345678
+
+uvicorn app.main:app --reload
+
+Header: Tells the app "I used the HS256 algorithm."
+Payload: The data (e.g., { "user_id": 5, "exp": 12345678 }).
+The Magic Step (Signing):
+The computer takes the Payload and mixes it mathematically with your SECRET_KEY.
+Math: HashFunction(Payload + "MySuperSecretKey")
+Result: A weird string like x8a9b.... This is the Signature.
+Final Token: The server glues them all together:
+Header.Payload.Signature
+It sends this string to the browser.
