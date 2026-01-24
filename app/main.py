@@ -16,5 +16,4 @@ app.include_router(vault_router)
 def root(data:int , name:str):
     if data>20:
         return{name,"fail"}
-    else:
-        return{name,"pass"}  
+      
