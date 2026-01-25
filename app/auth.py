@@ -15,7 +15,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 security = HTTPBearer()
 
-#_____utility functions________
+#_____utility functions________#
 
 def hash_password(password: str) -> str:
     return pwd_context.hash(password[:72])
@@ -30,7 +30,6 @@ def create_access_token(data: dict, expires_delta: timedelta):
     expire = datetime.utcnow() + expires_delta
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-
 
 #________register api________#
 
