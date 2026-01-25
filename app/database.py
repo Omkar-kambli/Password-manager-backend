@@ -6,7 +6,6 @@ DATABASE_URL = "postgresql+psycopg2://postgres:12345678@localhost:5432/password_
 
 engine = create_engine(DATABASE_URL)  # No connect_args!
 
-
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
