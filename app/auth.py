@@ -32,7 +32,7 @@ def create_access_token(data: dict, expires_delta: timedelta):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
-#_______register api________#
+#________register api________#
 
 @router.post("/register", response_model=schemas.RegisterResponse)
 def register_user(
