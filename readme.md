@@ -1,7 +1,7 @@
 <h>Password Manager API (FastAPI)</h>
 Python
 
-📸 API Documentation
+📸 API Documentation  :)
 (Screenshot of /docs Swagger UI here)
 
 🚀 Features
