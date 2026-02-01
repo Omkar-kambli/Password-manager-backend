@@ -19,4 +19,3 @@ uvicorn main:app --reload
 Visit http://127.0.0.1:8000/docs
 
 
-**So, upload your backend using the Git flow we just learned, but make sure to include `requirements.txt` and a screenshot

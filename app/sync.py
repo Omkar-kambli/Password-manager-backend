@@ -9,9 +9,9 @@ from app.schemas import VaultEntryCreate, VaultEntryResponse
 from app.auth import get_current_user
 
 
-router = APIRouter(prefix="/sync", tags=["Synchronization"])
+router = APIRouter(prefix="", tags=["Synchronization"])
 
-@router.get("/status")
+@router.get("/pull")
 def sync_push(entry:list[VaultEntryResponse] , db: Session = Depends(get_db) , current_user:dict=Depends(get_current_user)):
     return(
         db.query(VaultEntry).filter(
