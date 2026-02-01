@@ -7,7 +7,7 @@ from app.sync import router as sync_router
 
 app = FastAPI(title="Password Manager Backend")
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app.include_router(auth_router)
 

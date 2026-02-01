@@ -14,8 +14,8 @@ router = APIRouter(prefix="/sync", tags=["Synchronization"])
 @router.get("/status")
 def sync_push(entry:list[VaultEntryResponse] , db: Session = Depends(get_db) , current_user:dict=Depends(get_current_user)):
     return(
-        db.query(VaultEntryCreate).filter(
-            VaultEntryCreate.user_id == current_user["user_id"]
+        db.query(VaultEntry).filter(
+            VaultEntry.user_id == current_user["user_id"]
     ).all()
     )
 
