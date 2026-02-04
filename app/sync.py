@@ -9,7 +9,7 @@ from app.schemas import VaultEntryCreate, VaultEntryResponse
 from app.auth import get_current_user
 
 
-router = APIRouter(prefix="", tags=["Synchronization"])
+router = APIRouter(prefix="sync", tags=["Synchronization"])
 
 @router.get("/pull", response_model=List[VaultEntryResponse])
 def sync_pull(
