@@ -11,13 +11,17 @@ from app.auth import get_current_user
 
 router = APIRouter(prefix="", tags=["Synchronization"])
 
-@router.get("/pull")
-def sync_push(entry:list[VaultEntryResponse] , db: Session = Depends(get_db) , current_user:dict=Depends(get_current_user)):
-    return(
-        db.query(VaultEntry).filter(
-            VaultEntry.user_id == current_user["user_id"]
-    ).all()
+@router.get("/pull", response_model=List[VaultEntryResponse])
+def sync_pull(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    return (
+        db.query(VaultEntry)
+        .filter(VaultEntry.user_id == current_user["user_id"])
+        .all()
     )
+
 
 @router.post("/push")
 def sync_push(
@@ -27,7 +31,7 @@ def sync_push(
 ):
     # Delete old vault data
     db.query(VaultEntry).filter(
-        VaultEntry.user_id == current_user["user_id"]
+        VaultEntry.user_id == current_user["user_id"] 
     ).delete()
 
     # Insert new vault data
