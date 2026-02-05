@@ -16,6 +16,7 @@ app.include_router(vault_router)
 app.include_router(sync_router)
 
 @app.get("/")
-def root(data:int , name:str):
-    return{"hi brother:0"}
+def root():
+    return {"message": "API is running"}
+
       
